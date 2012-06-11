@@ -1,0 +1,160 @@
+﻿<phone:PhoneApplicationPage
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" xmlns:Coding4Fun_Phone_Controls="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls" x:Class="Raspberry_Pi.View.TvView"
+                            mc:Ignorable="d"
+                            d:DesignWidth="480"
+                            d:DesignHeight="768"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            DataContext="{Binding ViewModelName, Source={StaticResource Locator}}">
+
+    <Grid x:Name="LayoutRoot"
+          Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel"
+    		Grid.Row="0"
+    		Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle"
+    			Text="Raspberry Pi - TV"
+    			Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0,12,2" />
+            <StackPanel x:Name="ControllersGrid" Orientation="Horizontal"
+    			Height="97"
+    			Margin="9,0,0,0">
+                <Coding4Fun_Phone_Controls:Tile x:Name="HomeTile" Content="Home" Width="100" Height="100" Background="{StaticResource RaspGreenBrush}" Margin="0,0,10,0"/>
+                <Coding4Fun_Phone_Controls:Tile x:Name="PS3Tile" Content="PS3" Width="100" Height="100" Background="{StaticResource RaspGreenBrush}" Margin="0,0,10,0"/>
+                <Coding4Fun_Phone_Controls:Tile x:Name="KeyboardTile" Content="Keyboard" Width="100" Height="100" Background="{StaticResource RaspGreenBrush}" Margin="0,0,10,0"/>
+                <Coding4Fun_Phone_Controls:Tile x:Name="MouseTile" Content="Mouse" Width="100" Height="100" Background="{StaticResource RaspGreenBrush}" Margin="0,0,10,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0">
+            <Grid x:Name="ArrowsPanel">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="128" />
+                    <RowDefinition Height="128"/>
+                    <RowDefinition Height="128"/>
+                </Grid.RowDefinitions>
+                <!-- Outside arrows -->
+                <Button Height="128" Grid.ColumnSpan="1" Grid.Column="2"
+			            Background="{x:Null}" BorderBrush="{x:Null}"
+			            BorderThickness="0,3,3,3" Padding="0" 
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="135"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button Height="128" Grid.ColumnSpan="1" Grid.Column="0"
+			            Background="{x:Null}"  BorderBrush="{x:Null}"
+			            BorderThickness="0,3,3,3" Padding="0" 
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="45"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button Height="128" Grid.Row="2" Grid.Column="0"
+			            Background="{x:Null}" BorderBrush="{x:Null}"
+			            BorderThickness="0,3,3,3" Padding="0" 
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="315"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button Height="128" Grid.Row="2" Grid.Column="2"
+			            Background="{x:Null}" BorderBrush="{x:Null}"
+			            BorderThickness="0,3,3,3" Padding="0" 
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="225"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+
+                <!-- Main Buttons -->
+                <Button Width="128" Height="128" Grid.Row="1" Grid.Column="1"
+			            Background="{StaticResource RaspGreenBrush}" 
+			            BorderThickness="0"
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Refresh_128.png" Stretch="Fill"/>
+                </Button>
+
+                <Button Height="128" Grid.Column="1"
+			            Background="{StaticResource RaspGreenBrush}" 
+			            BorderThickness="3,3,3,0" Padding="0"
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="90"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button Height="128" Grid.Row="1" Grid.Column="0"
+			            Background="{StaticResource RaspGreenBrush}" 
+			            BorderThickness="3,3,0,3" Padding="0"
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" Stretch="Fill"/>
+                </Button>
+                <Button Height="128" Grid.Row="2" Grid.Column="1"
+			            Background="{StaticResource RaspGreenBrush}" 
+			            BorderThickness="3,0,3,3" Padding="0" 
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="-90"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button Height="128" Grid.Row="1" Grid.Column="2"
+			            Background="{StaticResource RaspGreenBrush}" 
+			            BorderThickness="0,3,3,3" Padding="0" 
+                        Style="{StaticResource ButtonStyleTile}">
+                    <Image Source="/Icons/Left_128.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="180"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

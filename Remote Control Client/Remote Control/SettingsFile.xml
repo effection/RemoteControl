@@ -1,0 +1,18 @@
+﻿<Settings>
+  <!-- Loads this connection setting on start up-->
+  <DefaultConnectionSetting>Mum's House</DefaultConnectionSetting>
+  
+  <ConnectionSetting Name="Mum's house">
+    <UseCommonServer id="{MAC_ADDRESS_OF_SERVER}/{EMPTY}">True/False</UseCommonServer>
+    <UseCommonConnection Protocol="UDP" Port="113002">True/False</UseCommonConnection>
+
+    <!-- Doesn't have to be present if UseCommonServer and UseCommonConnection has always been true -->
+    <Services>
+      <Service Name="MouseService">
+        <Protocol>UDP</Protocol>
+        <Port>113002</Port>
+        <Server>{MAC_ADDRESS_OF_SERVER}/{EMPTY FOR UseCommonServer}</Server>
+      </Service>
+    </Services>
+  </ConnectionSetting>
+</Settings>
